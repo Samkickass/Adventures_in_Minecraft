@@ -19,7 +19,9 @@ def random_fence(pos):
         
 
 
-def wall(pos, width=50, height=10, thickness=0):
+def wall(pos=None, width=50, height=10, thickness=0):
+    if pos is None:
+        pos = mc.player.getTilePos()
     mc.setBlocks(pos.x,
         pos.y,
         pos.z,
