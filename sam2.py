@@ -39,7 +39,16 @@ def clear(pos, size=10):
         pos.z + size,
         block.AIR.id)
     
-mc = minecraft.Minecraft.create()
-pos = mc.player.getTilePos()
+def savefeet():
+    pos = mc.player.getTilePos()
+    b = mc.getBlock(pos.x, pos.y-1, pos.z,)
+    if b == block.AIR.id or b == block.WATER_STATIONARY.id or b == block.WATER_FLOWING.id:
+        mc.postToChat("not safe")
+    else:
+        mc.postToChat("safe")
 
+mc = minecraft.Minecraft.create()
+while True:
+    sleep(0.5)
+    savefeet()
 
