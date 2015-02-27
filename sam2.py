@@ -42,7 +42,7 @@ def clear(pos, size=10):
 def savefeet():
     pos = mc.player.getTilePos()
     b = mc.getBlock(pos.x, pos.y-1, pos.z,)
-    if b == block.AIR.id or b == block.WATER_STATIONARY.id or b == block.WATER_FLOWING.id:
+    if b in [block.AIR.id, block.WATER_STATIONARY.id, block.WATER_FLOWING.id]:
         mc.postToChat("not safe")
     else:
         mc.postToChat("safe")
